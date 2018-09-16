@@ -21,6 +21,7 @@ type Props = {};
 export default class App extends Component<Props> {
   state = {
     show: false,
+    show2: false,
   };
 
   render() {
@@ -30,9 +31,26 @@ export default class App extends Component<Props> {
           <Text style={styles.welcome}>Welcome to React Native!</Text>
           <Text style={styles.welcome}>{`show: ${this.state.show}`}</Text>
           <Button
-            title="Toggle Modal"
+            title="Toggle Modal 1"
             onPress={() => {
               this.setState({ show: !this.state.show });
+            }}
+          />
+          <Button
+            title="Toggle Modal 2"
+            marginTop={10}
+            onPress={() => {
+              this.setState({ show2: !this.state.show2 });
+            }}
+          />
+          <Button
+            title="Toggle Both"
+            marginTop={10}
+            onPress={() => {
+              this.setState({
+                show: !this.state.show,
+                show2: !this.state.show2,
+              });
             }}
           />
           <Modal
@@ -48,6 +66,21 @@ export default class App extends Component<Props> {
           >
             <View
               style={{ height: 200, width: 200, backgroundColor: 'green' }}
+            />
+          </Modal>
+          <Modal
+            style={{
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            isVisible={this.state.show2}
+            onBackdropPress={() => {
+              this.setState({ show2: false });
+            }}
+          >
+            <View
+              style={{ height: 200, width: 200, backgroundColor: 'blue' }}
             />
           </Modal>
         </View>
