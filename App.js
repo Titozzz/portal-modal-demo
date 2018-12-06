@@ -5,7 +5,7 @@
  * @format
  * @flow
  */
-
+//require('MessageQueue').spy(true);
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import { ModalRoot, Modal } from 'react-native-modal';
